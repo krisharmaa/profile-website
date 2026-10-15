@@ -1,31 +1,47 @@
-# Krish Sharma Portfolio
+# Krish Sharma — Portfolio
 
-A responsive personal portfolio built with semantic HTML, custom CSS, and lightweight JavaScript. It includes project filters, expandable project notes, article reading dialogs, a mobile navigation menu, and a copy-email action. There are no build dependencies.
+A small, static portfolio for my current work as a Computer Engineering student at VJTI Mumbai. It brings together a few projects, campus roles, ways to get in touch, and a public copy of my résumé.
+
+## What's included
+
+- A short introduction, education, and areas I'm learning about
+- Selected project summaries with links to their project write-ups and source repositories
+- A Writing section with personal notes on algorithms, campus tools, and human-centered design
+- Campus and community activities
+- Email, GitHub, and LinkedIn contact links
+- A downloadable résumé PDF with the phone number removed
+
+## Project write-ups
+
+- [CampusConnect](project-readmes/CampusConnect.md) — a campus event discovery project
+- [Map Pathfinding Visualizer](project-readmes/Map-Pathfinding-Visualizer.md) — a map-based algorithm visualizer
 
 ## Run locally
 
-Open `index.html` in a browser, or run a local server from this folder:
+The site uses plain HTML, CSS, and JavaScript. It has no package installation or build step.
 
-```bash
+```powershell
 python -m http.server 8000
 ```
 
-Then open `http://localhost:8000`.
+Open `http://localhost:8000` in your browser.
 
 ## Deploy
 
-- **GitHub Pages:** Publish this folder (or its contents) from the repository's Pages settings.
-- **Vercel:** Import the repository and set the project root to `outputs/krish-portfolio` if the portfolio is inside the larger project. No build command or output directory is needed; this is a static site.
+### Vercel
 
-## Content notes
+Import this repository, choose **Other** as the framework preset, and serve the repository root (`.`). No build command is needed.
 
-- Contact links use the public email and social profiles supplied by Krish.
-- Academic percentages are shown as listed on the resume. Result documents are not copied to the public site, and identifying fields are omitted.
-- Project descriptions reflect the supplied resume. Individual repository links can be added once each repository is identified.
-- The Writing entries are technical drafts based on resume facts and general technical explanations; personal journal writing can be added when Krish supplies reflections to include.
-- Pratibimb appears with only the supplied role title; no dates or additional responsibilities are assumed.
-- The calendar art is marked as sample UI and is illustrative, not a real event listing.
+### GitHub Pages
 
-## Accessibility details
+In **Settings → Pages**, choose **Deploy from a branch**, then select `main` and `/(root)`.
 
-Semantic landmarks and sections, skip link, keyboard-visible focus, keyboard-operable controls, native accessible article dialog (including Escape and backdrop close), accessible mobile navigation state, and reduced-motion support are included. Automated or real-user accessibility and usability evaluation has not been performed.
+## Built with
+
+- Semantic HTML
+- CSS, including responsive layouts and reduced-motion support
+- Vanilla JavaScript
+
+## Public contact details
+
+The portfolio intentionally publishes the email and social profile links provided for this site. The public résumé copy leaves out the phone number.

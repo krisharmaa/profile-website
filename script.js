@@ -1,46 +1,7 @@
-const articles = [
-  {
-    tag: 'Algorithms',
-    title: 'A map is a great place to meet a search algorithm',
-    excerpt: 'A practical look at why A* and Dijkstra can take different routes—and what a visualizer helps reveal.',
-    read: '4 MIN READ · NOTES BY KRISH',
-    body: [
-      'A pathfinding algorithm does not see a map the way a person does. It sees a graph: a collection of locations connected by possible moves. The algorithm’s job is to decide which locations to examine, and in what order, before it can be confident about a route.',
-      'Dijkstra’s algorithm expands outward from the start, always choosing the next location with the lowest known travel cost. A* adds a heuristic: an estimate of how far a location is from the goal. That estimate helps it focus its search toward the destination while still accounting for the path cost already travelled.',
-      'A visualizer makes that difference tangible. Watching visited nodes spread across a map can explain more than a formula alone. Comparing the final route, visited-node count, and elapsed time also reminds us that “shortest” and “fastest to compute” are different questions.',
-      'In the Map Pathfinding Visualizer, these ideas can be explored with A*, Dijkstra, Best-First, Beam Search, and Bidirectional Search. The map becomes a space for experimentation: choose endpoints, watch the traversal, and compare what each strategy prioritises.',
-    ],
-  },
-  {
-    tag: 'Project notes',
-    title: 'Designing event discovery around student context',
-    excerpt: 'CampusConnect explores a simple idea: an event feed is more useful when it reflects who is looking at it.',
-    read: '3 MIN READ · NOTES BY KRISH',
-    body: [
-      'A campus can have plenty of events and still make discovery difficult. Students may have to sort through opportunities that do not fit their year, degree, or course. CampusConnect approaches that problem by using academic profile attributes to personalise the event feed.',
-      'The project separates two roles. Admins manage events; students browse a feed matched to their academic profile and register. That structure gives each visitor a clearer starting point and makes the purpose of each view easier to understand.',
-      'The data model matters to the experience. Event-user matching depends on storing events, users, and academic attributes in a relational database. A well-defined relationship between those records helps the interface show relevant choices consistently.',
-      'This project is a reminder that information architecture and database design meet in the interface. The underlying model determines which choices the product can make visible—and how clearly it can explain them.',
-    ],
-  },
-  {
-    tag: 'Cybersecurity',
-    title: 'Encryption names are not the whole security story',
-    excerpt: 'A short orientation to symmetric and asymmetric cryptography, hashes, and the role each plays.',
-    read: '4 MIN READ · NOTES BY KRISH',
-    body: [
-      'Cryptography is a toolkit, not a single feature. Symmetric encryption uses the same secret key to encrypt and decrypt data. Asymmetric cryptography uses a related public and private key pair, which makes it useful for different tasks such as establishing trust or exchanging key material.',
-      'Hash functions solve a different problem. A cryptographic hash maps input data to a fixed-size digest; it is designed to be one-way. A hash is not a substitute for encryption when the original data must be recovered.',
-      'The names of algorithms—AES, RSA, SHA-512—are only one part of a secure system. How keys are generated, stored, rotated, and used matters too. Security depends on the whole design and its implementation, not just the label on one component.',
-      'Studying these building blocks side by side makes their boundaries easier to remember: encryption protects confidentiality, asymmetric systems support public-key operations, and hashes help verify data integrity. Choosing among them starts with understanding the problem being solved.',
-    ],
-  },
-];
-
 const thoughts = [
-  'Building with\npeople in mind.',
-  'Making technology\nfeel intuitive.',
-  'Turning curiosity\ninto code.',
+  'people.',
+  'clarity.',
+  'connection.',
 ];
 const typedQuote = document.querySelector('#typed-quote');
 const quoteAnnouncement = document.querySelector('#quote-announcement');
@@ -135,26 +96,6 @@ filterButtons.forEach((button) => button.addEventListener('click', () => {
   });
   countLabel.textContent = String(visibleCount).padStart(2, '0');
 }));
-
-const dialog = document.querySelector('#article-dialog');
-const closeButtons = [...dialog.querySelectorAll('.modal-close, .modal-close-text')];
-document.querySelectorAll('[data-article]').forEach((button) => button.addEventListener('click', () => {
-  const article = articles[Number(button.dataset.article)];
-  if (!article) return;
-  document.querySelector('#article-tag').textContent = article.tag;
-  document.querySelector('#article-title').textContent = article.title;
-  document.querySelector('#article-excerpt').textContent = article.excerpt;
-  document.querySelector('#article-reading-time').textContent = article.read;
-  const prose = document.querySelector('#article-prose');
-  prose.replaceChildren(...article.body.map((text) => {
-    const paragraph = document.createElement('p');
-    paragraph.textContent = text;
-    return paragraph;
-  }));
-  dialog.showModal();
-}));
-closeButtons.forEach((button) => button.addEventListener('click', () => dialog.close()));
-dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
 
 const copyButton = document.querySelector('#copy-email');
 const toast = document.querySelector('.toast-message');
